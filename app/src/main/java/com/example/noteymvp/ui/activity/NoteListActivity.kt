@@ -1,13 +1,15 @@
 package com.example.noteymvp.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.noteymvp.R
-
-
-
+import kotlinx.android.synthetic.main.activity_note_list.*
 
 class NoteListActivity : AppCompatActivity() {
 
@@ -21,25 +23,29 @@ class NoteListActivity : AppCompatActivity() {
         val staggeredGridLayoutManager = StaggeredGridLayoutManager(3, 1)
         recyclerView.layoutManager = staggeredGridLayoutManager
 
+        addNote.setOnClickListener {
+            addNote()
+        }
 
-
+        setSupportActionBar(bottom_app_bar)
     }
 
-//    private fun getListItemData(): List<ItemObjects> {
-//        val listViewItems = ArrayList<ItemObjects>()
-//        listViewItems.add(ItemObjects("Alkane", R.drawable.one))
-//        listViewItems.add(ItemObjects("Ethane", R.drawable.two))
-//        listViewItems.add(ItemObjects("Alkyne", R.drawable.three))
-//        listViewItems.add(ItemObjects("Benzene", R.drawable.four))
-//        listViewItems.add(ItemObjects("Amide", R.drawable.one))
-//        listViewItems.add(ItemObjects("Amino Acid", R.drawable.two))
-//        listViewItems.add(ItemObjects("Phenol", R.drawable.three))
-//        listViewItems.add(ItemObjects("Carbonxylic", R.drawable.four))
-//        listViewItems.add(ItemObjects("Nitril", R.drawable.one))
-//        listViewItems.add(ItemObjects("Ether", R.drawable.two))
-//        listViewItems.add(ItemObjects("Ester", R.drawable.three))
-//        listViewItems.add(ItemObjects("Alcohol", R.drawable.four))
-//
-//        return listViewItems
-//    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.bottomappbar_menu_primary, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item!!.itemId) {
+            R.id.app_bar_search -> Log.d("TAG","Fav menu search item is clicked!")
+        }
+
+        return true
+    }
+
+    private fun addNote(){
+        val intent = Intent(this, NoteComposeActivity::class.java)
+        startActivity(intent)
+    }
 }

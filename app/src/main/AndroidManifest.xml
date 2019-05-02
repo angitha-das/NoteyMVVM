@@ -9,16 +9,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"/>
-
-        <activity android:name=".ui.activity.NoteListActivity"
-        android:theme="@style/CustomAppTheme">
+        <activity android:name=".ui.activity.NotesActivity">
+        </activity>
+        <activity android:name=".ui.activity.SplashActivity"/>
+        <activity
+                android:name=".ui.activity.NoteListActivity"
+                android:theme="@style/CustomAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+                android:name=".ui.activity.NoteComposeActivity"
+                android:theme="@style/CustomAppTheme"/>
     </application>
 
 </manifest>

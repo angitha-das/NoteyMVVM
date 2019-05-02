@@ -39,7 +39,8 @@ class NoteListRecyclerViewAdapter(private val listItemClickListener: ListItemCli
    abstract class ListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     class ListViewHolder(itemView: View) : ListItemViewHolder(itemView) {
-        private val listItemTitle: TextView = itemView.tv
+        private val listItemTitle: TextView = itemView.titleTv
+        private val listItemContent: TextView = itemView.contentTv
         fun setData(notes: Note, listItemClickListener: ListItemClickListener) {
             listItemTitle.text = notes.noteTitle
             itemView.setOnClickListener {

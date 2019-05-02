@@ -12,7 +12,7 @@ abstract class AppDatabase: RoomDatabase() {
 
     companion object {
 
-        private val DATABASE = "Notey"
+        private const val DATABASE = "Notey_DB"
         private var INSTANCE: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {

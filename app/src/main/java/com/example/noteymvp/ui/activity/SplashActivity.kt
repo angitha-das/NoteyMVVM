@@ -1,7 +1,8 @@
-package com.example.noteymvp
+package com.example.noteymvp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.noteymvp.R
 
 class SplashActivity : AppCompatActivity() {
 

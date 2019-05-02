@@ -7,7 +7,8 @@ import java.util.*
 
 @Entity
 class Note {
-    @PrimaryKey
+
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var noteId: Int = 0
     @ColumnInfo(name = "title")
@@ -15,6 +16,8 @@ class Note {
     @ColumnInfo(name = "content")
     var noteContent: String? = null
     @ColumnInfo(name = "updatedTime")
-    var noteUpdatedTime: Date? = null
+    var noteUpdatedTime: Long = 0
+    @ColumnInfo(name = "star")
+    var noteStar: Boolean = false
 }
 

@@ -8,16 +8,33 @@
         card_view:cardCornerRadius="4dp"
         card_view:cardMaxElevation="2dp"
         card_view:cardElevation="1dp">
-    <TextView
-            android:id="@+id/tv"
+    <LinearLayout
+            android:id="@+id/linearLayout"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:layout_margin="2dp"
-            android:padding="5dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:fontFamily="sans-serif-condensed"
-    />
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/titleTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/title"
+                android:layout_margin="2dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:gravity="start"
+        />
+        <TextView
+                android:id="@+id/contentTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/description"
+                android:layout_margin="2dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:gravity="start"
+        />
+    </LinearLayout>
+
 </androidx.cardview.widget.CardView>
