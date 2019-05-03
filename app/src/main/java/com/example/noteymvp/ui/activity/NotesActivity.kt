@@ -90,7 +90,7 @@ class NotesActivity : AppCompatActivity() {
             //fragment not in back stack, create it.
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.content,fragment,fragmentTag)
+                .replace(R.id.frame_layout,fragment,fragmentTag)
                 .addToBackStack(fragmentTag)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commitAllowingStateLoss()

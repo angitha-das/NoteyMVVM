@@ -22,8 +22,8 @@ class ComposeNoteFragment:Fragment() {
     }
 
     companion object {
-        fun newInstance(): ListNoteFragment {
-            return ListNoteFragment()
+        fun newInstance(): ComposeNoteFragment {
+            return ComposeNoteFragment()
         }
     }
 

@@ -36,9 +36,9 @@ class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListene
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-//        recyclerView.layoutManager = LinearLayoutManager(recyclerView.context, RecyclerView.VERTICAL, false)
-//        adapter = NoteRecyclerViewAdapter(this)
-//        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(recyclerView.context, RecyclerView.VERTICAL, false)
+        adapter = NoteRecyclerViewAdapter(this)
+        recyclerView.adapter = adapter
     }
 
     override fun onItemClicked(position: Int) {
