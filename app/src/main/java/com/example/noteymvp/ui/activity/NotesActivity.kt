@@ -30,6 +30,11 @@ class NotesActivity : AppCompatActivity() {
 //        val staggeredGridLayoutManager = StaggeredGridLayoutManager(3, 1)
 //        recyclerView.layoutManager = staggeredGridLayoutManager
 
+        if (selectedFragment == null) {
+            selectedFragment = ListNoteFragment.newInstance()
+        }
+        addFragment(selectedFragment!!,FRAGMENT_LIST_NOTE)
+
         fabIcon.setOnClickListener {
           toggleFunction()
         }
@@ -60,7 +65,8 @@ class NotesActivity : AppCompatActivity() {
     }
 
     private fun addNote(){
-        bottom_app_bar.navigationIcon = null
+        //Navigate to compose/update note
+        bottom_app_bar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.ic_arrow_back)
         bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
         bottom_app_bar.replaceMenu(R.menu.bottomappbar_menu_secondary)
         fabIcon?.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_save))
@@ -72,7 +78,9 @@ class NotesActivity : AppCompatActivity() {
         addFragment(selectedFragment!!,FRAGMENT_COMPOSE_NOTE)
     }
     private fun saveNote(){
-        bottom_app_bar.navigationIcon = resources.getDrawable(R.drawable.ic_menu_white_24dp)
+        //Save and navigate to note listing
+        ComposeNoteFragment.newInstance().createNote()
+        bottom_app_bar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.ic_menu_white_24dp)
         bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
         bottom_app_bar.replaceMenu(R.menu.bottomappbar_menu_primary)
         fabIcon?.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_add_white_24dp))

@@ -43,6 +43,7 @@ class NoteRecyclerViewAdapter(private val listItemClickListener: ListItemClickLi
         private val listItemContent: TextView = itemView.contentTv
         fun setData(notes: Note, listItemClickListener: ListItemClickListener) {
             listItemTitle.text = notes.noteTitle
+            listItemContent.text = notes.noteContent
             itemView.setOnClickListener {
                 listItemClickListener.onItemClicked(adapterPosition)
             }

@@ -16,7 +16,7 @@ interface  NoteDao {
     fun getNoteById(id: String): Note
 
     @Insert(onConflict = REPLACE)
-    fun addNote(note: Note)
+    fun insert(note: Note)
 
     @Delete
     fun deleteNote(note: Note)
