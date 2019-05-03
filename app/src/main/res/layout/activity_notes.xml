@@ -29,12 +29,14 @@
                 app:navigationIcon="@drawable/ic_menu_white_24dp"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/addNote"
+                android:id="@+id/fabIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fabSize="normal"
                 android:src="@drawable/ic_add_white_24dp"
-                app:layout_anchor="@id/bottom_app_bar"/>
+                app:layout_anchor="@id/bottom_app_bar"
+                app:hideOnScroll="true"
+                app:layout_scrollFlags="scroll|enterAlways"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

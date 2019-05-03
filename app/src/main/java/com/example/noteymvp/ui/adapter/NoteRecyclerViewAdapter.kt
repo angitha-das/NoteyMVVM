@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.noteymvp.database.Note
 import kotlinx.android.synthetic.main.list_item_view.view.*
 
-class NoteListRecyclerViewAdapter(private val listItemClickListener: ListItemClickListener) : RecyclerView.Adapter<NoteListRecyclerViewAdapter.ListItemViewHolder>() {
+class NoteRecyclerViewAdapter(private val listItemClickListener: ListItemClickListener) : RecyclerView.Adapter<NoteRecyclerViewAdapter.ListItemViewHolder>() {
 
     private var mItemsList: List<Note> = ArrayList()
 
