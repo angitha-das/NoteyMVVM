@@ -10,20 +10,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noteymvp.R
 import com.example.noteymvp.ui.adapter.NoteRecyclerViewAdapter
-import com.example.noteymvp.viewmodel.ListNoteViewModel
+import com.example.noteymvp.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_list_note.*
 
 class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListener{
 
     private lateinit var adapter: NoteRecyclerViewAdapter
-    private lateinit var listNoteViewModel: ListNoteViewModel
+    private lateinit var noteViewModel: NoteViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         activity?.let {
-            listNoteViewModel = ViewModelProviders.of(it).get(ListNoteViewModel::class.java)
+            noteViewModel = ViewModelProviders.of(it).get(NoteViewModel::class.java)
         }
-
         return  inflater.inflate(R.layout.fragment_list_note, container, false)
     }
 
@@ -42,6 +41,7 @@ class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListene
     }
 
     override fun onItemClicked(position: Int) {
+
     }
 
 }

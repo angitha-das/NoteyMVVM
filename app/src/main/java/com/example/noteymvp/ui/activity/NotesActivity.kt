@@ -79,7 +79,6 @@ class NotesActivity : AppCompatActivity() {
     }
     private fun saveNote(){
         //Save and navigate to note listing
-        ComposeNoteFragment.newInstance().createNote()
         bottom_app_bar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.ic_menu_white_24dp)
         bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
         bottom_app_bar.replaceMenu(R.menu.bottomappbar_menu_primary)
