@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProviders
 import com.example.noteymvp.R
 import com.example.noteymvp.ui.fragment.ComposeNoteFragment
 import com.example.noteymvp.ui.fragment.ListNoteFragment
 import com.example.noteymvp.util.FRAGMENT_COMPOSE_NOTE
 import com.example.noteymvp.util.FRAGMENT_LIST_NOTE
+import com.example.noteymvp.viewmodel.NoteViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import kotlinx.android.synthetic.main.activity_notes.*
 
@@ -20,6 +22,8 @@ class NotesActivity : AppCompatActivity() {
 
     private var addFab: Boolean = true
     private var selectedFragment: Fragment? = supportFragmentManager.findFragmentByTag(FRAGMENT_LIST_NOTE)
+    private lateinit var noteViewModel: NoteViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
@@ -38,7 +42,7 @@ class NotesActivity : AppCompatActivity() {
         fabIcon.setOnClickListener {
           toggleFunction()
         }
-
+        noteViewModel = ViewModelProviders.of(this).get(NoteViewModel::class.java)
         setSupportActionBar(bottom_app_bar)
     }
 
@@ -89,6 +93,7 @@ class NotesActivity : AppCompatActivity() {
             selectedFragment = ListNoteFragment.newInstance()
         }
         addFragment(selectedFragment!!,FRAGMENT_LIST_NOTE)
+
     }
 
     private fun addFragment(fragment: Fragment, fragmentTag: String) {
@@ -104,6 +109,10 @@ class NotesActivity : AppCompatActivity() {
         }
     }
 
+    interface NoteInterface {
+        fun listNotes()
+        fun saveNotes()
+    }
 
 }
 

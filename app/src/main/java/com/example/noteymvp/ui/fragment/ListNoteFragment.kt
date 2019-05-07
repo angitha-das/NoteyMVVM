@@ -9,11 +9,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noteymvp.R
+import com.example.noteymvp.ui.activity.NotesActivity
 import com.example.noteymvp.ui.adapter.NoteRecyclerViewAdapter
 import com.example.noteymvp.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_list_note.*
 
-class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListener{
+class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListener, NotesActivity.NoteInterface {
+
 
     private lateinit var adapter: NoteRecyclerViewAdapter
     private lateinit var noteViewModel: NoteViewModel
@@ -32,6 +34,10 @@ class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListene
         }
     }
 
+    private fun listAllNotes(){
+        noteViewModel.getNotes(requireContext())
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -44,6 +50,12 @@ class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListene
 
     }
 
+    override fun listNotes() {
+        listAllNotes()
+    }
+
+    override fun saveNotes() {
+    }
 }
 
 

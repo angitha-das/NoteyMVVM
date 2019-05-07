@@ -11,7 +11,7 @@ class NoteViewModel : ViewModel(){
 
                 fun getNotes(context: Context) = noteRepository.getNotes(context)
 
-                fun addNote(title: String, details: String, imageUrl: String, context: Context) = noteRepository.addNote(title, details, context)
+                fun addNote(title: String, details: String, context: Context) = noteRepository.addNote(title, details, context)
 
                 fun updateNote(note: Note, context: Context) = noteRepository.updateNote(note, context)
 
