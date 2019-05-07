@@ -11,9 +11,10 @@ import com.example.noteymvp.ui.activity.NotesActivity
 import com.example.noteymvp.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_compose_note.*
 
-class ComposeNoteFragment:Fragment(),NotesActivity.NoteInterface {
+class ComposeNoteFragment:Fragment() {
 
     private lateinit var noteViewModel: NoteViewModel
+    private var listener: SaveNoteInterface? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -29,14 +30,13 @@ class ComposeNoteFragment:Fragment(),NotesActivity.NoteInterface {
         }
     }
 
-    private fun addNewNote(){
+    fun addNewNote(){
+        listener?.saveNotes()
         noteViewModel.addNote(noteTitle.text.toString(),noteDescription.text.toString(),requireContext())
     }
 
-    override fun saveNotes() {
-        addNewNote()
+    interface SaveNoteInterface {
+        fun saveNotes()
     }
 
-    override fun listNotes() {
-    }
 }

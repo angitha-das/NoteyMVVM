@@ -18,7 +18,7 @@ import com.example.noteymvp.viewmodel.NoteViewModel
 import com.google.android.material.bottomappbar.BottomAppBar
 import kotlinx.android.synthetic.main.activity_notes.*
 
-class NotesActivity : AppCompatActivity() {
+class NotesActivity : AppCompatActivity(),ListNoteFragment.ListNoteInterface,ComposeNoteFragment.SaveNoteInterface {
 
     private var addFab: Boolean = true
     private var selectedFragment: Fragment? = supportFragmentManager.findFragmentByTag(FRAGMENT_LIST_NOTE)
@@ -87,7 +87,6 @@ class NotesActivity : AppCompatActivity() {
         bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
         bottom_app_bar.replaceMenu(R.menu.bottomappbar_menu_primary)
         fabIcon?.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_add_white_24dp))
-
         selectedFragment = supportFragmentManager.findFragmentByTag(FRAGMENT_LIST_NOTE)
         if (selectedFragment == null) {
             selectedFragment = ListNoteFragment.newInstance()
@@ -109,9 +108,12 @@ class NotesActivity : AppCompatActivity() {
         }
     }
 
-    interface NoteInterface {
-        fun listNotes()
-        fun saveNotes()
+    override fun listNotes() {
+
+    }
+
+    override fun saveNotes() {
+
     }
 
 }
