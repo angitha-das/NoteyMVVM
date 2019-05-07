@@ -18,6 +18,7 @@ class NoteRepository {
             }
     }
 
+
     private val notes = MutableLiveData<List<Note>>()
 
     /**
@@ -25,10 +26,18 @@ class NoteRepository {
      * return all the notes objects
      * @param context The context of the Activity that calls this method
      */
-    fun getNotes(context: Context){
+    fun getNotes(context: Context): MutableLiveData<List<Note>>{
         val db = AppDatabase.getInstance(context)
+        val notes = ArrayList<Note>()
         val allNotes = db.noteDao().getAllNotes()
+        allNotes.forEach {
+            notes.add(it)
+        }
+        this.notes.value = notes
+        return this.notes
     }
+
+
 
     /**
      * Adding notes to database

@@ -1,5 +1,6 @@
 package com.example.noteymvp.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,25 @@ class ComposeNoteFragment:Fragment() {
 
     fun addNewNote(){
         listener?.saveNotes()
-        noteViewModel.addNote(noteTitle.text.toString(),noteDescription.text.toString(),requireContext())
+
+        if(noteTitle.text.isNotEmpty()|| noteTitle.text.isNotBlank() || noteDescription.text.isNotEmpty() || noteDescription.text.isNotBlank()){
+            noteViewModel.addNote(noteTitle.text.toString(),noteDescription.text.toString(),requireContext())
+        }
+
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is SaveNoteInterface) {
+            listener = context
+        } else {
+            throw RuntimeException("$context must implement SaveNoteInterface")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
     }
 
     interface SaveNoteInterface {

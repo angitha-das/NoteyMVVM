@@ -1,5 +1,6 @@
 package com.example.noteymvp.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,7 +38,8 @@ class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListene
 
     fun listAllNotes(){
         listener?.listNotes()
-        noteViewModel.getNotes(requireContext())
+        val notes = noteViewModel.getNotes(requireContext())
+//        adapter.addListItem(notes)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -50,6 +52,20 @@ class ListNoteFragment: Fragment(), NoteRecyclerViewAdapter.ListItemClickListene
 
     override fun onItemClicked(position: Int) {
 
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is ListNoteInterface) {
+            listener = context
+        } else {
+            throw RuntimeException("$context must implement ListNoteInterface")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
     }
 
     interface ListNoteInterface {

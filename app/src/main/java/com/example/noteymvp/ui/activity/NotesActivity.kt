@@ -83,6 +83,7 @@ class NotesActivity : AppCompatActivity(),ListNoteFragment.ListNoteInterface,Com
     }
     private fun saveNote(){
         //Save and navigate to note listing
+        (selectedFragment as ComposeNoteFragment).addNewNote()
         bottom_app_bar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.ic_menu_white_24dp)
         bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
         bottom_app_bar.replaceMenu(R.menu.bottomappbar_menu_primary)
@@ -92,7 +93,7 @@ class NotesActivity : AppCompatActivity(),ListNoteFragment.ListNoteInterface,Com
             selectedFragment = ListNoteFragment.newInstance()
         }
         addFragment(selectedFragment!!,FRAGMENT_LIST_NOTE)
-
+        (selectedFragment as ListNoteFragment).listAllNotes()
     }
 
     private fun addFragment(fragment: Fragment, fragmentTag: String) {
@@ -113,7 +114,6 @@ class NotesActivity : AppCompatActivity(),ListNoteFragment.ListNoteInterface,Com
     }
 
     override fun saveNotes() {
-
     }
 
 }

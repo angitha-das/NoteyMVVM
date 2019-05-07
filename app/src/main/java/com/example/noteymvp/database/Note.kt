@@ -7,7 +7,6 @@ import java.util.*
 
 @Entity
 class Note {
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var noteId: Int = 0
